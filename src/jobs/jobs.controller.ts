@@ -56,6 +56,19 @@ export class JobsController {
     return this.jobsService.createJob(createJobDto, user);
   }
 
+  @Patch(':uuid')
+  updateJob(
+    @Param('uuid') uuid: string,
+    @Body() createJobDto: CreateJobDto,
+    @GetUser() user: User,
+  ): Promise<Job> {
+    this.logger.verbose(
+      `User ${user.email} updating a job: ${JSON.stringify(createJobDto)}`,
+    );
+    const job = this.jobsService.updateJob(uuid, createJobDto, user);
+    return job;
+  }
+
   @Patch('/:uuid/status')
   updateJobStatus(
     @Param('uuid') uuid: string,
@@ -71,13 +84,4 @@ export class JobsController {
   deleteJob(@Param('uuid') uuid: string, @GetUser() user: User): Promise<void> {
     return this.jobsService.deleteJob(uuid, user);
   }
-
-  // @Patch(':id')
-  // updateJob(
-  //   @Param('id') id: string,
-  //   @Body() createJobDto: CreateJobDto,
-  // ): Job | boolean {
-  //   const job = this.jobsService.updateJob(id, createJobDto);
-  //   return job;
-  // }
 }

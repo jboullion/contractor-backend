@@ -18,14 +18,38 @@ export class Job {
   id: number;
 
   // Publicly referenced ID
-  @Column()
+  @Column({ unique: true })
   uuid: string;
 
   @Column()
   title: string;
 
-  @Column()
+  @Column({ type: 'text', nullable: true })
   description: string;
+
+  @Column({ type: 'varchar', length: 100, nullable: true })
+  firstName: string;
+
+  @Column({ type: 'varchar', length: 100, nullable: true })
+  lastName: string;
+
+  @Column({ type: 'varchar', length: 100, nullable: true })
+  email: string;
+
+  @Column({ type: 'varchar', length: 100, nullable: true })
+  address: string;
+
+  @Column({ type: 'varchar', length: 100, nullable: true })
+  city: string;
+
+  @Column({ type: 'varchar', length: 100, nullable: true })
+  state: string;
+
+  @Column({ type: 'varchar', length: 20, nullable: true })
+  zip: string;
+
+  @Column({ type: 'varchar', length: 100, nullable: true })
+  country: string;
 
   @Column()
   status: JobStatus;

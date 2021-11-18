@@ -35,6 +35,20 @@ export class JobsService {
     return await this.jobsRepository.createJob(createJobDto, user);
   }
 
+  async updateJob(
+    uuid: string,
+    createJobDto: CreateJobDto,
+    user: User,
+  ): Promise<Job> {
+    const job = await this.getJobById(uuid, user);
+
+    if (job) {
+      return await this.jobsRepository.updateJob(job, createJobDto);
+    }
+
+    throw new NotFoundException(`Job ${uuid} not found`);
+  }
+
   async updateJobStatus(
     uuid: string,
     status: JobStatus,

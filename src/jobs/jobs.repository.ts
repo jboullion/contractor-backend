@@ -52,16 +52,65 @@ export class JobsRepository extends Repository<Job> {
   }
 
   async createJob(createJobDto: CreateJobDto, user: User): Promise<Job> {
-    const { title, description } = createJobDto;
+    const {
+      title,
+      description,
+      firstName,
+      lastName,
+      email,
+      address,
+      city,
+      state,
+      zip,
+      country,
+    } = createJobDto;
 
     const uuid = randomUUID();
     const job = this.create({
       uuid,
       title,
       description,
+      firstName,
+      lastName,
+      email,
+      address,
+      city,
+      state,
+      zip,
+      country,
       status: JobStatus.OPEN,
       user,
     });
+
+    await this.save(job);
+
+    return job;
+  }
+
+  async updateJob(job: Job, createJobDto: CreateJobDto): Promise<Job> {
+    const {
+      title,
+      description,
+      firstName,
+      lastName,
+      email,
+      address,
+      city,
+      state,
+      zip,
+      country,
+    } = createJobDto;
+
+    job.title = title;
+    job.description = description;
+    job.firstName = firstName;
+    job.lastName = lastName;
+    job.email = email;
+    job.address = address;
+    job.city = city;
+    job.state = state;
+    job.zip = zip;
+    job.country = country;
 
     await this.save(job);
 
