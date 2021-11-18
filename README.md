@@ -1,7 +1,5 @@
 ## Description
 
-Testing a repo pull
-
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
 This repository has been built out as a viable MVP framework for future projects.
