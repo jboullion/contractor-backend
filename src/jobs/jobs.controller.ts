@@ -62,6 +62,7 @@ export class JobsController {
     @Body() updateJobStatusDto: UpdateJobStatusDto,
     @GetUser() user: User,
   ): Promise<Job> {
+    // test
     const { status } = updateJobStatusDto;
     return this.jobsService.updateJobStatus(uuid, status, user);
   }
