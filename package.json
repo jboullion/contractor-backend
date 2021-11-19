@@ -1,8 +1,8 @@
 {
   "name": "contractor-backend",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "description": "Basic Crud Backend MVP",
+  "author": "James Boullion",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {

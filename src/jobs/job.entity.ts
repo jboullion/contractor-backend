@@ -34,6 +34,9 @@ export class Job {
   lastName: string;
 
   @Column({ type: 'varchar', length: 100, nullable: true })
+  phone: string;
+
+  @Column({ type: 'varchar', length: 100, nullable: true })
   email: string;
 
   @Column({ type: 'varchar', length: 100, nullable: true })

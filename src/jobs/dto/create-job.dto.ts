@@ -1,5 +1,12 @@
-import { IsNotEmpty, IsString, MaxLength, IsOptional } from 'class-validator';
+import {
+  IsNotEmpty,
+  IsString,
+  IsEmail,
+  MaxLength,
+  IsOptional,
+} from 'class-validator';
 
+// https://www.npmjs.com/package/class-validator#passing-options
 export class CreateJobDto {
   @IsNotEmpty()
   title: string;
@@ -20,7 +27,12 @@ export class CreateJobDto {
   lastName: string;
 
   @IsOptional()
-  @IsString()
+  @IsString() // @IsPhoneNumber(region: string)
+  @MaxLength(100)
+  phone: string;
+
+  @IsOptional()
+  @IsEmail()
   @MaxLength(100)
   email: string;
 
@@ -40,7 +52,7 @@ export class CreateJobDto {
   state: string;
 
   @IsOptional()
-  @IsString()
+  @IsString() // @IsPostalCode(locale?: string)
   @MaxLength(20)
   zip: string;
 
