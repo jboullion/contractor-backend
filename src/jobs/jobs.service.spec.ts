@@ -13,7 +13,7 @@ const mockJobsRepository = () => ({
 });
 
 const mockUser: User = {
-  username: 'James',
+  email: 'James',
   id: 10,
   password: 'password',
   jobs: [],
@@ -21,7 +21,8 @@ const mockUser: User = {
 };
 
 const mockJob: Job = {
-  id: '10',
+  id: 10,
+  uuid: 'sdfgsdfgsdfg',
   title: 'Mock Job Title',
   description: 'Mock Job Description',
   user: mockUser,
