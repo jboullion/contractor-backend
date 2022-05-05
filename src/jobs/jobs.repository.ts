@@ -88,6 +88,7 @@ export class JobsRepository extends Repository<Job> {
       description,
       firstName,
       lastName,
+      phone,
       email,
       address,
       city,
@@ -100,6 +101,7 @@ export class JobsRepository extends Repository<Job> {
     job.description = description;
     job.firstName = firstName;
     job.lastName = lastName;
+    job.phone = phone;
     job.email = email;
     job.address = address;
     job.city = city;

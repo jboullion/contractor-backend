@@ -11,7 +11,6 @@ import { configValidationSchema } from './config.schema';
       envFilePath: [`.env`],
       validationSchema: configValidationSchema,
     }),
-    JobsModule,
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
@@ -35,6 +34,7 @@ import { configValidationSchema } from './config.schema';
       },
     }),
     AuthModule,
+    JobsModule,
   ],
 })
 export class AppModule {}
